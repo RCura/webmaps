@@ -1,0 +1,10 @@
+Package: webmaps
+Type: Package
+Title: Create HTML Web maps
+Version: 1.0
+Date: 2009-08-06
+Author: Barry Rowlingson
+Maintainer: Barry Rowlingson <b.rowlingson@lancaster.ac.uk>
+Description: Convert SpatialData objects and write HTML+Javascript map files.
+License: GPL-3
+LazyLoad: yes
