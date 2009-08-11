@@ -54,24 +54,13 @@
       map = new OpenLayers.Map("map", options);
       var mapnik = new OpenLayers.Layer.OSM.Mapnik("OpenStreetMap"); 
       map.addLayer(mapnik);
- <% for(i in 1:length(nmk)){ %>
-      var <%= nmk[i]%> = new OpenLayers.Layer.GML("<%= nmk[i]%>","<%= paste(nmk[i],".gml",sep="")%>",{
-        projection: new OpenLayers.Projection("EPSG:4326"),
-        style: {
-  "strokeWidth": 1,
-  "strokeColor": "#000000",
-  "fillColor": "<%= colours[i]%>",
-  "pointRadius": 6
-           }
-
-       });
-
-      map.addLayer(<%= nmk[i]%>);
+ <% for(Layer in Layers){ %>
+  <% brew(layerTemplate) %>
  <% } %>
 
 
      selectControl = new OpenLayers.Control.SelectFeature(
-                [<%= paste(nmk,collapse=",")%>],
+                [<%= paste(unlist(lapply(Layers,function(x){x$name})),collapse=",") %>],
                 {onSelect: onFeatureSelect, onUnselect: onFeatureUnselect}
             );
             

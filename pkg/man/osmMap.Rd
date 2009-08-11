@@ -9,11 +9,11 @@ Create an OpenStreetMap view of Spatial Data
 Take some sp-class objects (SpatialPointsDataFrame, SpatialPolygonsDataFrame etc) and create an OpenLayers map using OpenStreetMap background data.
 }
 \usage{
-osmMap(layerList, title = "map", outputDir = tempdir(), htmlFile = "index.html", colours = palette(), browse = FALSE)
+osmMap(..., title = "map", outputDir = tempdir(), htmlFile = "index.html", browse = FALSE)
 }
 \arguments{
-  \item{layerList}{
-A list of SpatialData objects to map. Currently only vector data.
+  \item{...}{
+Some layer objects
 }
   \item{title}{
 The map title.
@@ -23,9 +23,6 @@ Where to put the html and data files.
 }
   \item{htmlFile}{
 The name of the html file.
-}
-  \item{colours}{
-A colour palette.
 }
   \item{browse}{
 If TRUE, open R's default web browser on completion.
@@ -49,9 +46,10 @@ statesp = data.frame(state.x77)
 statesp$Name = row.names(statesp)
 coordinates(statesp) = cbind(state.center$x,state.center$y)
 # how to produce three layers:
-osmMap(list(s1 = statesp[state.center$x < -109,],
-            s2 = statesp[state.center$x >= -109 & state.center$x < -84,],
-            s3 = statesp[state.center$x > -84,]))
+osmMap(layer(statesp[state.center$x < -109,],name="state1",fillColor="red"),
+       layer(statesp[state.center$x >= -109 & state.center$x < -84,],
+             name="state2",fillColor="blue",fillOpacity=0.5),
+       layer(statesp[state.center$x > -84,],name="state3"))
 }
 
 \keyword{hplot}

@@ -1,0 +1,7 @@
+      var <%= Layer$name%> = new OpenLayers.Layer.GML("<%= Layer$name%>","<%= paste(Layer$name,".gml",sep="")%>",{
+        projection: new OpenLayers.Projection("EPSG:4326")<% if(length(Layer$style)>0){%>,
+        styleMap: <%= OLStyle(Layer$style)%>  <% } %>
+       });
+
+      map.addLayer(<%= Layer$name%>);
+
