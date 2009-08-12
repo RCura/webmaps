@@ -1,4 +1,4 @@
-style <- function(...){
+lstyle <- function(...){
 
   properties = c(
     "fillColor",
@@ -24,18 +24,18 @@ style <- function(...){
   if(any(is.na(m))){
     stop(paste("Unrecognised parameters: ",paste(names(args)[is.na(m)],sep="",collapse=",")))
   }
-  class(args)="style"
+  class(args)="lstyle"
   return(args)
     
 }
 
-print.style <- function(x,...){
+print.lstyle <- function(x,...){
   kv=c()
   for(k in names(x)){
     kv = c(kv,paste(k,"=\"",x[[k]],"\"",sep=""))
   }
   kkv = paste(kv,collapse=",")
-  cat("Style:\n")
+  cat("Layer style:\n")
   cat(kkv)
   cat("\n")
   
@@ -53,19 +53,3 @@ OLStyle <- function(x){
   return(s)
 }
 
-
-## ==
-## This works to style layers by attributes:
-  
-##       var trees = new OpenLayers.Layer.GML("trees","trees.gml",{
-##         projection: new OpenLayers.Projection("EPSG:4326"),
-##         styleMap: new OpenLayers.Style({
-##       'pointRadius': "${IRMmin}"
-## })
-##        });
-
-## ===
-
-# this does the override properly:
-## styleMap: new OpenLayers.Style(
-##  OpenLayers.Util.applyDefaults({'fillColor': 'red'}, OpenLayers.Feature.Vector.style['default'])
