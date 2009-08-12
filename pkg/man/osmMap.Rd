@@ -46,9 +46,9 @@ statesp = data.frame(state.x77)
 statesp$Name = row.names(statesp)
 coordinates(statesp) = cbind(state.center$x,state.center$y)
 # how to produce three layers:
-osmMap(layer(statesp[state.center$x < -109,],name="state1",style(fillColor="red")),
+osmMap(layer(statesp[state.center$x < -109,],name="state1",lstyle(fillColor="red")),
        layer(statesp[state.center$x >= -109 & state.center$x < -84,],
-             name="state2",style(fillColor="blue",fillOpacity=0.5)),
+             name="state2",lstyle(fillColor="blue",fillOpacity=0.5)),
        layer(statesp[state.center$x > -84,],name="state3"))
 }
 
