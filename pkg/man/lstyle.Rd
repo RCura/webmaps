@@ -18,7 +18,7 @@ OLStyle(x)
 \arguments{
   \item{\dots}{
  Named style parameters, as documented in the OpenLayers
- documentation. See the source code (just type 'lstyle' at the R prompt)
+ documentation - or see the source code (just type 'lstyle' at the R prompt)
  for valid names.
 }
   \item{x}{A layer style object as returned by lstyle()}
@@ -30,7 +30,8 @@ Map layers are styles using layer styles.
 lstyle returns a list with the style names and values. The names are
 checked for correctness.
 
-OLStyle returns a chunk of Javascript for using a layer style in OpenLayers.}
+OLStyle returns a chunk of Javascript for using a layer style in
+OpenLayers. It's not really a user-level function.}
 
 \author{
 Barry Rowlingson
