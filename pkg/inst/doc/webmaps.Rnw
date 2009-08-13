@@ -1,0 +1,55 @@
+\documentclass{article}
+
+%\VignetteIndexEntry{A package for making web maps}
+
+\usepackage{listings}
+\usepackage{Sweave}
+\SweaveOpts{keep.source=TRUE}
+<<<SweaveListingspreparations, results=tex, echo=FALSE>>=
+require(SweaveListingUtils)
+SweaveListingPreparations()
+@
+
+\title{Web Maps}
+
+\author{Barry Rowlingson}
+
+\begin{document}
+
+\maketitle
+
+The \texttt{webmaps} package takes spatial data and produces an HTML page
+that overlays that data onto a map. It uses the OpenLayers javascript
+library and OpenStreetMap as base data. In this way it produces freely-usable
+maps for the web with no need to get an API key or submit to some 
+restrictive re-use license.
+
+Here is a simple example:
+
+\begin{Scode}
+> library(webmaps)
+> state = data.frame(state.x77)
+> state$Name = rownames(state)
+> coordinates(state) = cbind(state.center$x, state.center$y)
+> osmMap(layer(state,"States"), title="State Data",outputDir ="./states1")
+\end{Scode}
+
+%%% $
+
+Pointing your web browser to the generated html file produces this:
+
+\includegraphics{states1.png}
+
+The package can produce maps with several layers of information containing
+points, polygons and lines. The appearance of layers can be individually controlled.
+
+The appearance of individual features can also be set. Here we scale the size
+of the points by the murder rate in each state:
+
+\includegraphics{states3.png}
+
+These examples are fully explained in the \texttt{demo(osmMap)} which displays
+a PDF document.
+
+\end{document}
+
