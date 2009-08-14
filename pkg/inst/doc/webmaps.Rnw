@@ -48,8 +48,27 @@ of the points by the murder rate in each state:
 
 \includegraphics{states3.png}
 
+It's also possible to overlay raster data by using \texttt{ilayer}. Here we generate some points
+and use the \texttt{splancs} kernel smoothing function to produce a surface:
+
+\begin{Scode}
+> library(splancs)
+> pts = cbind(rnorm(100,0.5,.5),rnorm(100,53.5,.5))
+> pts = rbind(pts,cbind(rnorm(100,-1,.5),rnorm(100,52,.5)))
+> k = kernel2d(pts,sbox(pts),0.4,100,100) 
+> kl = ilayer(k,name="density",colorRamp(c("blue","red")))
+> pts = data.frame(pts)
+> coordinates(pts) <- cbind(pts[,1],pts[,2])
+> ptsl = layer(pts,"Points",lstyle(fillColor="white",strokeColor="black"))
+> osmMap(kl,ptsl)
+\end{Scode}
+
+\includegraphics{smooth.png}
+
 These examples are fully explained in the \texttt{demo(osmMap)} which displays
 a PDF document.
+
+
 
 \end{document}
 
