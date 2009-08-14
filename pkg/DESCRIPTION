@@ -8,4 +8,4 @@ Maintainer: Barry Rowlingson <b.rowlingson@lancaster.ac.uk>
 Description: Convert SpatialData objects and write HTML+Javascript map files.
 License: GPL-3
 LazyLoad: yes
-Depends: sp, rgdal, brew
+Depends: sp, rgdal, brew, rtiff

@@ -14,6 +14,8 @@ layer <- function(layerData,name,style=lstyle()){
     style = style
     )
 
+  l$select = TRUE
+  
   class(l) <- "layer"
   return(l)
 }
@@ -24,4 +26,15 @@ print.layer <- function(x,...){
   print(summary(x$data))
   print(x$style)
   invisible(0)
+}
+
+writeOut.layer <- function(Layer,outputDir){
+  name = Layer$name
+  gmlFile = paste(name, ".gml", sep = "")
+  gmlPath = file.path(outputDir, gmlFile)
+  writeOGR(Layer$data, gmlPath, name, "GML")
+}
+
+templatePart.layer <- function(x){
+  system.file("templates/osmLayer.brew",package="webmaps")
 }

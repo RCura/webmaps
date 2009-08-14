@@ -1,3 +1,4 @@
+
 osmMap <-
 function(..., title="map", outputDir=tempdir(), htmlFile="index.html", browse=FALSE){
 
@@ -20,15 +21,18 @@ updateBbox=function(box,layer){
   layerTemplate = system.file("templates/osmLayer.brew",package="webmaps")
 
   box = list(xmin = 180,xmax=-180,ymin=90,ymax=-90)
-  
+
+  selectable = c()
   for(Layer in Layers){
     box = updateBbox(box,Layer$data)
-    name = Layer$name
-    gmlFile = paste(name,".gml",sep="")
-    gmlPath = file.path(outputDir,gmlFile)
-    writeOGR(Layer$data,gmlPath,name,"GML")
+    writeOut(Layer,outputDir)
+    if(Layer$select){
+      selectable=c(selectable,Layer$name)
+    }
   }
 
+  selectList = paste(selectable,collapse=",")
+  
   outPath = file.path(outputDir,htmlFile)
   bounds = paste(box$xmin,box$ymin,box$xmax,box$ymax,sep=",")
   brew(file=mapTemplate,output=outPath)

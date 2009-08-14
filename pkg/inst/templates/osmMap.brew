@@ -55,12 +55,12 @@
       var mapnik = new OpenLayers.Layer.OSM.Mapnik("OpenStreetMap"); 
       map.addLayer(mapnik);
  <% for(Layer in Layers){ %>
-  <% brew(layerTemplate) %>
+  <% brew(templatePart(Layer)) %>
  <% } %>
 
 
      selectControl = new OpenLayers.Control.SelectFeature(
-                [<%= paste(unlist(lapply(Layers,function(x){x$name})),collapse=",") %>],
+                [<%= selectList %>],
                 {onSelect: onFeatureSelect, onUnselect: onFeatureUnselect}
             );
             

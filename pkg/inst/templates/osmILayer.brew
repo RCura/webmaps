@@ -1,0 +1,16 @@
+
+    extent = new OpenLayers.Bounds();
+    extent.extend(new OpenLayers.LonLat(<%= paste(bbox(Layer$data)[,1],collapse=",")%>).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));
+    extent.extend(new OpenLayers.LonLat(<%= paste(bbox(Layer$data)[,2],collapse=",")%>).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));
+    
+    var <%= Layer$name%> = new OpenLayers.Layer.Image("<%= Layer$name%>",
+        "<%= paste(Layer$name,'.png',sep='')%>",
+	extent,
+	new OpenLayers.Size(16,16), // size controls the zoom visibility
+	{
+	    opacity: <%= Layer$opacity %>,
+	    isBaseLayer: false,
+	    projection:new OpenLayers.Projection("EPSG:4326")
+	} );
+    
+    map.addLayer(<%= Layer$name%>);
