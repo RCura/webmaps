@@ -15,8 +15,14 @@ lstyle <- function(...){
     "graphicOpacity",
     "graphicXOffset",
     "graphicYOffset",
-    "graphicName"
-    )
+    "graphicName",
+    "label",
+    "fontColor",
+    "fontSize",
+    "fontFamily",
+    "fontWeight",
+    "labelAlign"
+)
 
   args = list(...)
 

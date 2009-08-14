@@ -25,7 +25,7 @@ updateBbox=function(box,layer){
   selectable = c()
   for(Layer in Layers){
     box = updateBbox(box,Layer$data)
-    writeOut(Layer,outputDir)
+    .writeOut(Layer,outputDir)
     if(Layer$select){
       selectable=c(selectable,Layer$name)
     }

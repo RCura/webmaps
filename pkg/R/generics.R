@@ -1,9 +1,9 @@
 
-writeOut <- function(Layer,outputDir){
-  UseMethod("writeOut")
+.writeOut <- function(Layer,outputDir){
+  UseMethod(".writeOut")
 }
 
 
-templatePart <- function(x){
-  UseMethod("templatePart")
+.templatePart <- function(x){
+  UseMethod(".templatePart")
 }

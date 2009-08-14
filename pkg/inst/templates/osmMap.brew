@@ -55,7 +55,7 @@
       var mapnik = new OpenLayers.Layer.OSM.Mapnik("OpenStreetMap"); 
       map.addLayer(mapnik);
  <% for(Layer in Layers){ %>
-  <% brew(templatePart(Layer)) %>
+  <% brew(.templatePart(Layer)) %>
  <% } %>
 
 

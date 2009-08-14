@@ -3,10 +3,11 @@
 \alias{layer}
 \alias{print.layer}
 \title{
-Create a map layer object.
+Create a map vector layer object.
 }
 \description{
-Create a map layer object for some data and an optional style.
+Create a map vector layer object for some data and an optional
+style. The data can be points, lines, or polygons.
 }
 \usage{
 layer(layerData, name, style = lstyle())
@@ -39,8 +40,9 @@ An object of class 'layer'.
 Barry Rowlingson
 }
 \examples{
-# this should be a spatial data frame really:
+
 data = data.frame(a=1:10,b=1:10)
+coordinates(data)=cbind(runif(10,0,1),runif(10,53,54))
 
 l1 = layer(data,name="myData",
    style=lstyle(fillColor="red", pointRadius="${a}"))

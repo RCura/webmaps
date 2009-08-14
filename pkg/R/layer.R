@@ -28,13 +28,13 @@ print.layer <- function(x,...){
   invisible(0)
 }
 
-writeOut.layer <- function(Layer,outputDir){
+.writeOut.layer <- function(Layer,outputDir){
   name = Layer$name
   gmlFile = paste(name, ".gml", sep = "")
   gmlPath = file.path(outputDir, gmlFile)
   writeOGR(Layer$data, gmlPath, name, "GML")
 }
 
-templatePart.layer <- function(x){
+.templatePart.layer <- function(x){
   system.file("templates/osmLayer.brew",package="webmaps")
 }

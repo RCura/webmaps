@@ -1,6 +1,6 @@
 ilayer <- function(xyz,name,pfunc=colorRamp(c("white","black")),opacity=0.6,...){
 
-  if(!checkName(name)){
+  if(!.checkName(name)){
     stop(paste("Invalid name: ",name,sep=""))
   }
 
@@ -30,14 +30,13 @@ print.ilayer <- function(x,...){
   cat(length(x$xyz$x),"x",length(x$xyz$y)," pixels.\n")
 }
 
-writeOut.ilayer <- function(Layer,outputDir){
+.writeOut.ilayer <- function(Layer,outputDir){
   name = Layer$name
   tiffFile = paste(name,".tif",sep="")
   pngFile = paste(name,".png",sep="")
   tiffPath = file.path(outputDir,tiffFile)
   pngPath = file.path(outputDir,pngFile)
   
-  rgb = Layer$pfunc(Layer$xyz$z)
   rgb = Layer$pfunc(t(Layer$xyz$z)[ncol(Layer$xyz$z):1,])
   rgbpixmap = pixmapRGB(c(rgb[,1],rgb[,2],rgb[,3]),ncol(Layer$xyz$z),nrow(Layer$xyz$z))
   writeTiff(rgbpixmap,tiffPath)
@@ -49,6 +48,6 @@ writeOut.ilayer <- function(Layer,outputDir){
   file.remove(tiffPath)
 }
 
-templatePart.ilayer <- function(x){
+.templatePart.ilayer <- function(x){
   system.file("templates/osmILayer.brew",package="webmaps")
 }
