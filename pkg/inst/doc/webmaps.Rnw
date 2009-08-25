@@ -1,6 +1,6 @@
 \documentclass{article}
 
-%\VignetteIndexEntry{A package for making web maps}
+%\VignetteIndexEntry{A package for working with web maps}
 
 \usepackage{listings}
 \usepackage{Sweave}
@@ -17,6 +17,12 @@ SweaveListingPreparations()
 \begin{document}
 
 \maketitle
+
+The \texttt{webmaps} package does two main things: converting spatial
+data from R to create HTML/Javascript maps using OpenLayers, and 
+importing map tile data into R for use on R graphic plots.
+
+\section{Creating HTML maps}
 
 The \texttt{webmaps} package takes spatial data and produces an HTML page
 that overlays that data onto a map. It uses the OpenLayers javascript
@@ -68,7 +74,15 @@ and use the \texttt{splancs} kernel smoothing function to produce a surface:
 These examples are fully explained in the \texttt{demo(osmMap)} which displays
 a PDF document.
 
+\section{Importing map tiles}
 
+See the help for \texttt{getTiles} for more documentation. 
+
+\begin{Scode}
+> lancs = getTiles(c(-2.842,-2.7579),c(54.0295,54.063),
+          zoom = 12,path="http://tile.openstreetmap.org/")
+> image(lancs)
+\end{Scode}
 
 \end{document}
 
