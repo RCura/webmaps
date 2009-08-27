@@ -102,7 +102,7 @@ This example gets tiles for Lancaster and plots it. It then uses my
 between them:
 
 \begin{Scode}
-library(geonames)
+> library(geonames)
 \end{Scode}
 <<fig=TRUE>>=
  lancs = getTiles(c(-2.842,-2.7579),c(54.0295,54.063),
