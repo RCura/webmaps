@@ -8,6 +8,8 @@
 <<<SweaveListingspreparations, results=tex, echo=FALSE>>=
 require(SweaveListingUtils)
 SweaveListingPreparations()
+library(webmaps,lib.loc="../../../pkg.Rcheck")
+library(geonames)
 @
 
 \title{Web Maps}
@@ -76,13 +78,46 @@ a PDF document.
 
 \section{Importing map tiles}
 
-See the help for \texttt{getTiles} for more documentation. 
+Services like OpenStreetMap (http://www.openstreetmap.org/) produce 
+map tiles for use in web map applications. These tiles can be downloaded
+as image files. These functions grab tile images for use in R graphics
+by converting them to SpatialPixelDataFrame objects from the sp-package.
+
+The main function is \texttt{getTiles}, which gets tiles given a 
+spatial region, a zoom level, and a path to the tile server. 
+
+Always make sure you check the copyright and usage restrictions of any
+tile server you use. By default this package will cache tiles in a 
+temporary R-session folder so that tiles should only be downloaded
+once per R-session. These folders are deleted at the end of an R session
+so you might want to create a more persistent folder for keeping 
+downloaded tiles.
+
+The tile usage policy for OpenStreetMap's ``Mapnik'' tiles is here:
+
+\verb|http://wiki.openstreetmap.org/wiki/Tile_usage_policy| 
+
+This example gets tiles for Lancaster and plots it. It then uses my 
+\texttt{geonames} package to get some nearby places and draw the connections
+between them:
 
 \begin{Scode}
-> lancs = getTiles(c(-2.842,-2.7579),c(54.0295,54.063),
-          zoom = 12,path="http://tile.openstreetmap.org/")
-> image(lancs)
+library(geonames)
 \end{Scode}
+<<fig=TRUE>>=
+ lancs = getTiles(c(-2.842,-2.7579),c(54.0295,54.063),
+          zoom = 12,path="http://tile.openstreetmap.org/")
+ image(lancs)
+ local = GNfindNearbyPlaceName(lat=54.0475,lng=-2.800312,radius=5)
+ np = dim(local)[1]
+ pairs = cbind(rep(1:np,np),rep(1:np,rep(np,np)))
+ segments(local$lng[pairs[,1]],local$lat[pairs[,1]],
+          local$lng[pairs[,2]],local$lat[pairs[,2]],col="red")
+ text(local$lng,local$lat,local$name)
+@ 
+
+More information on \texttt{getTiles} can be found in the
+help for that function - type \texttt{help(getTiles)} for that.
 
 \end{document}
 
