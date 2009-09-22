@@ -8,7 +8,7 @@
 <<<SweaveListingspreparations, results=tex, echo=FALSE>>=
 require(SweaveListingUtils)
 SweaveListingPreparations()
-library(webmaps,lib.loc="../../../pkg.Rcheck")
+library(webmaps)
 library(geonames)
 @
 
