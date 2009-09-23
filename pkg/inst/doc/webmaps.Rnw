@@ -5,12 +5,11 @@
 \usepackage{listings}
 \usepackage{Sweave}
 \SweaveOpts{keep.source=TRUE}
-<<<SweaveListingspreparations, results=tex, echo=FALSE>>=
-require(SweaveListingUtils)
-SweaveListingPreparations()
+<<echo=FALSE,results=hide>>=
 library(webmaps)
 library(geonames)
 @
+
 
 \title{Web Maps}
 
