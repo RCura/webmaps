@@ -1,7 +1,7 @@
 layer <- function(layerData,name,style=lstyle()){
 
-  okName = grep("^[a-zA-Z][a-zA-Z0-9_]*$",name)
-  if(length(okName)==0){
+  
+  if(!.checkName(name)){
     stop(paste("\"",name,"\" is invalid layer name",sep=""))
   }
   
