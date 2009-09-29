@@ -44,7 +44,7 @@ Barry Rowlingson
 data = data.frame(a=1:10,b=1:10)
 coordinates(data)=cbind(runif(10,0,1),runif(10,53,54))
 
-l1 = layer(data,name="myData",
+l1 = layer(data,name="mydata",
    style=lstyle(fillColor="red", pointRadius="${a}"))
 
 }

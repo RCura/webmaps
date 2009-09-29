@@ -48,7 +48,7 @@ Barry Rowlingson
 xyz =
 list(x=seq(0,1,len=10),y=seq(53,54,len=10),z=matrix(runif(100),10,10))
 
-l2 = ilayer(xyz,"randomField",colorRamp(c("white","red")),opacity=0.2)
+l2 = ilayer(xyz,"randomfield",colorRamp(c("white","red")),opacity=0.2)
 
 }
 \keyword{hplot}
