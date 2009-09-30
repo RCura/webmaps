@@ -1,11 +1,11 @@
 Package: webmaps
 Type: Package
 Title: Create HTML Web maps
-Version: 1.1
+Version: 1.2
 Date: 2009-08-06
 Author: Barry Rowlingson
 Maintainer: Barry Rowlingson <b.rowlingson@lancaster.ac.uk>
 Description: Create HTML web maps and import web map tile data into R
 License: GPL-3
 LazyLoad: yes
-Depends: sp, rgdal, brew, rtiff
+Depends: sp, rgdal, brew, pixmap

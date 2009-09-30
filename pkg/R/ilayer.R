@@ -32,20 +32,20 @@ print.ilayer <- function(x,...){
 
 .writeOut.ilayer <- function(Layer,outputDir){
   name = Layer$name
-  tiffFile = paste(name,".tif",sep="")
+  pnmFile = paste(name,".pnm",sep="")
   pngFile = paste(name,".png",sep="")
-  tiffPath = file.path(outputDir,tiffFile)
+  pnmPath = file.path(outputDir,pnmFile)
   pngPath = file.path(outputDir,pngFile)
   
   rgb = Layer$pfunc(t(Layer$xyz$z)[ncol(Layer$xyz$z):1,])
   rgbpixmap = pixmapRGB(c(rgb[,1],rgb[,2],rgb[,3]),ncol(Layer$xyz$z),nrow(Layer$xyz$z))
-  writeTiff(rgbpixmap,tiffPath)
-  xp=GDAL.open(tiffPath)
+  write.pnm(rgbpixmap,file=pnmPath)
+  xp=GDAL.open(pnmPath)
   xx=copyDataset(xp,driver="PNG")
   saveDataset(xx,pngPath)
   GDAL.close(xx)
   GDAL.close(xp)
-  file.remove(tiffPath)
+  file.remove(pnmPath)
 }
 
 .templatePart.ilayer <- function(x){
