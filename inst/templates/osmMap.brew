@@ -64,11 +64,10 @@
             map.addControl(selectControl);
             selectControl.activate();
 
-var epsg900913 = new OpenLayers.Projection("EPSG:900913");
 map.zoomToExtent(
       new OpenLayers.Bounds(
       <%= bounds%>
-      ).transform(map.projection, epsg900913)
+      ).transform(map.projection, new OpenLayers.Projection("EPSG:900913"))
       );
 
 };
