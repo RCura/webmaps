@@ -31,4 +31,4 @@ osmMap ( layer ( state , "States" , style (
     outputDir = "./test/" )
 ```
 
-** NB : This require a webserver due to cross-access restrictions **
+**NB : This require a webserver due to cross-access restrictions**
