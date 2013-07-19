@@ -48,14 +48,14 @@ print.lstyle <- function(x,...){
 }
 
 OLStyle <- function(x){
-  s = "new OpenLayers.Style(OpenLayers.Util.applyDefaults({"
+  s = "new OpenLayers.StyleMap({"
   kv = c()
   for(k in names(x)){
     kv = c(kv,paste("'",k,"': '",x[[k]],"'",sep=""))
   }
   kkv = paste(kv,collapse=",\n")
   s=paste(s,kkv,"\n",sep="")
-  s=paste(s,"},OpenLayers.Feature.Vector.style['default']))\n",sep="")
+  s=paste(s,"})\n",sep="")
   return(s)
 }
 

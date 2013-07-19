@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title><%= title%> </title>
+    <title>State Data </title>
 
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
@@ -51,13 +51,30 @@
       
       var mapnik = new OpenLayers.Layer.OSM.Mapnik("OpenStreetMap"); 
       map.addLayer(mapnik);
- <% for(Layer in Layers){ %>
-  <% brew(.templatePart(Layer)) %>
- <% } %>
+ 
+        var States = new OpenLayers.Layer.Vector("States",{
+      projection: "EPSG:4326",
+      protocol: new OpenLayers.Protocol.HTTP({
+                    	url: "States.gml",
+                    	format: new OpenLayers.Format.GML()
+                }),
+       strategies: [new OpenLayers.Strategy.Fixed()],
+			styleMap: new OpenLayers.StyleMap({'pointRadius': '${Murder}',
+'fillColor': 'blue',
+'strokeColor': 'black',
+'fillOpacity': '0.4'
+})
+  
+       });
+
+      map.addLayer(States);
+
+
+ 
 
 
      selectControl = new OpenLayers.Control.SelectFeature(
-                [<%= selectList %>],
+                [States],
                 {onSelect: onFeatureSelect, onUnselect: onFeatureUnselect}
             );
             
@@ -67,7 +84,7 @@
 var epsg900913 = new OpenLayers.Projection("EPSG:900913");
 map.zoomToExtent(
       new OpenLayers.Bounds(
-      <%= bounds%>
+      -127.25,27.8744,-68.9801,49.25
       ).transform(map.projection, epsg900913)
       );
 
@@ -80,7 +97,7 @@ map.zoomToExtent(
         </script>
     </head>
     <body onload="init()">
-        <h1 id="title"><%= title%></h1>
+        <h1 id="title">State Data</h1>
         <div id="map" style="height:600px;width:600px" ></div>
         <div id="status"></div>
     </body>
