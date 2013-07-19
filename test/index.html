@@ -60,7 +60,7 @@
                 }),
        strategies: [new OpenLayers.Strategy.Fixed()],
 			styleMap: new OpenLayers.StyleMap({'pointRadius': '${Murder}',
-'fillColor': 'blue',
+'fillColor': '${color}',
 'strokeColor': 'black',
 'fillOpacity': '0.4'
 })
@@ -81,11 +81,10 @@
             map.addControl(selectControl);
             selectControl.activate();
 
-var epsg900913 = new OpenLayers.Projection("EPSG:900913");
 map.zoomToExtent(
       new OpenLayers.Bounds(
       -127.25,27.8744,-68.9801,49.25
-      ).transform(map.projection, epsg900913)
+      ).transform(map.projection, new OpenLayers.Projection("EPSG:900913"))
       );
 
 };

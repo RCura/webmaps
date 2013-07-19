@@ -11,7 +11,7 @@ coordinates(state) <- cbind(state.center$x, state.center$y)
 
 osmMap ( layer ( state , "States" ,
                  lstyle (pointRadius = '${Murder}',
-                         fillColor = "blue" ,
+                         fillColor = "${Frost}" ,
                          strokeColor = "black",
                          fillOpacity = 0.4)
                  ),

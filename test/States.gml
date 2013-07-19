@@ -23,6 +23,7 @@
       <ogr:Frost>20</ogr:Frost>
       <ogr:Area>50708</ogr:Area>
       <ogr:Name>Alabama</ogr:Name>
+      <ogr:color>#FF0000</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -37,6 +38,7 @@
       <ogr:Frost>152</ogr:Frost>
       <ogr:Area>566432</ogr:Area>
       <ogr:Name>Alaska</ogr:Name>
+      <ogr:color>#FF1F00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -51,6 +53,7 @@
       <ogr:Frost>15</ogr:Frost>
       <ogr:Area>113417</ogr:Area>
       <ogr:Name>Arizona</ogr:Name>
+      <ogr:color>#FF3D00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -65,6 +68,7 @@
       <ogr:Frost>65</ogr:Frost>
       <ogr:Area>51945</ogr:Area>
       <ogr:Name>Arkansas</ogr:Name>
+      <ogr:color>#FF5C00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -79,6 +83,7 @@
       <ogr:Frost>20</ogr:Frost>
       <ogr:Area>156361</ogr:Area>
       <ogr:Name>California</ogr:Name>
+      <ogr:color>#FF7A00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -93,6 +98,7 @@
       <ogr:Frost>166</ogr:Frost>
       <ogr:Area>103766</ogr:Area>
       <ogr:Name>Colorado</ogr:Name>
+      <ogr:color>#FF9900</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -107,6 +113,7 @@
       <ogr:Frost>139</ogr:Frost>
       <ogr:Area>4862</ogr:Area>
       <ogr:Name>Connecticut</ogr:Name>
+      <ogr:color>#FFB800</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -121,6 +128,7 @@
       <ogr:Frost>103</ogr:Frost>
       <ogr:Area>1982</ogr:Area>
       <ogr:Name>Delaware</ogr:Name>
+      <ogr:color>#FFD600</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -135,6 +143,7 @@
       <ogr:Frost>11</ogr:Frost>
       <ogr:Area>54090</ogr:Area>
       <ogr:Name>Florida</ogr:Name>
+      <ogr:color>#FFF500</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -149,6 +158,7 @@
       <ogr:Frost>60</ogr:Frost>
       <ogr:Area>58073</ogr:Area>
       <ogr:Name>Georgia</ogr:Name>
+      <ogr:color>#EBFF00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -163,6 +173,7 @@
       <ogr:Frost>0</ogr:Frost>
       <ogr:Area>6425</ogr:Area>
       <ogr:Name>Hawaii</ogr:Name>
+      <ogr:color>#CCFF00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -177,6 +188,7 @@
       <ogr:Frost>126</ogr:Frost>
       <ogr:Area>82677</ogr:Area>
       <ogr:Name>Idaho</ogr:Name>
+      <ogr:color>#ADFF00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -191,6 +203,7 @@
       <ogr:Frost>127</ogr:Frost>
       <ogr:Area>55748</ogr:Area>
       <ogr:Name>Illinois</ogr:Name>
+      <ogr:color>#8FFF00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -205,6 +218,7 @@
       <ogr:Frost>122</ogr:Frost>
       <ogr:Area>36097</ogr:Area>
       <ogr:Name>Indiana</ogr:Name>
+      <ogr:color>#70FF00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -219,6 +233,7 @@
       <ogr:Frost>140</ogr:Frost>
       <ogr:Area>55941</ogr:Area>
       <ogr:Name>Iowa</ogr:Name>
+      <ogr:color>#52FF00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -233,6 +248,7 @@
       <ogr:Frost>114</ogr:Frost>
       <ogr:Area>81787</ogr:Area>
       <ogr:Name>Kansas</ogr:Name>
+      <ogr:color>#33FF00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -247,6 +263,7 @@
       <ogr:Frost>95</ogr:Frost>
       <ogr:Area>39650</ogr:Area>
       <ogr:Name>Kentucky</ogr:Name>
+      <ogr:color>#14FF00</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -261,6 +278,7 @@
       <ogr:Frost>12</ogr:Frost>
       <ogr:Area>44930</ogr:Area>
       <ogr:Name>Louisiana</ogr:Name>
+      <ogr:color>#00FF0A</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -275,6 +293,7 @@
       <ogr:Frost>161</ogr:Frost>
       <ogr:Area>30920</ogr:Area>
       <ogr:Name>Maine</ogr:Name>
+      <ogr:color>#00FF29</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -289,6 +308,7 @@
       <ogr:Frost>101</ogr:Frost>
       <ogr:Area>9891</ogr:Area>
       <ogr:Name>Maryland</ogr:Name>
+      <ogr:color>#00FF47</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -303,6 +323,7 @@
       <ogr:Frost>103</ogr:Frost>
       <ogr:Area>7826</ogr:Area>
       <ogr:Name>Massachusetts</ogr:Name>
+      <ogr:color>#00FF66</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -317,6 +338,7 @@
       <ogr:Frost>125</ogr:Frost>
       <ogr:Area>56817</ogr:Area>
       <ogr:Name>Michigan</ogr:Name>
+      <ogr:color>#00FF85</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -331,6 +353,7 @@
       <ogr:Frost>160</ogr:Frost>
       <ogr:Area>79289</ogr:Area>
       <ogr:Name>Minnesota</ogr:Name>
+      <ogr:color>#00FFA3</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -345,6 +368,7 @@
       <ogr:Frost>50</ogr:Frost>
       <ogr:Area>47296</ogr:Area>
       <ogr:Name>Mississippi</ogr:Name>
+      <ogr:color>#00FFC2</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -359,6 +383,7 @@
       <ogr:Frost>108</ogr:Frost>
       <ogr:Area>68995</ogr:Area>
       <ogr:Name>Missouri</ogr:Name>
+      <ogr:color>#00FFE0</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -373,6 +398,7 @@
       <ogr:Frost>155</ogr:Frost>
       <ogr:Area>145587</ogr:Area>
       <ogr:Name>Montana</ogr:Name>
+      <ogr:color>#00FFFF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -387,6 +413,7 @@
       <ogr:Frost>139</ogr:Frost>
       <ogr:Area>76483</ogr:Area>
       <ogr:Name>Nebraska</ogr:Name>
+      <ogr:color>#00E0FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -401,6 +428,7 @@
       <ogr:Frost>188</ogr:Frost>
       <ogr:Area>109889</ogr:Area>
       <ogr:Name>Nevada</ogr:Name>
+      <ogr:color>#00C2FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -415,6 +443,7 @@
       <ogr:Frost>174</ogr:Frost>
       <ogr:Area>9027</ogr:Area>
       <ogr:Name>New Hampshire</ogr:Name>
+      <ogr:color>#00A3FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -429,6 +458,7 @@
       <ogr:Frost>115</ogr:Frost>
       <ogr:Area>7521</ogr:Area>
       <ogr:Name>New Jersey</ogr:Name>
+      <ogr:color>#0085FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -443,6 +473,7 @@
       <ogr:Frost>120</ogr:Frost>
       <ogr:Area>121412</ogr:Area>
       <ogr:Name>New Mexico</ogr:Name>
+      <ogr:color>#0066FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -457,6 +488,7 @@
       <ogr:Frost>82</ogr:Frost>
       <ogr:Area>47831</ogr:Area>
       <ogr:Name>New York</ogr:Name>
+      <ogr:color>#0047FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -471,6 +503,7 @@
       <ogr:Frost>80</ogr:Frost>
       <ogr:Area>48798</ogr:Area>
       <ogr:Name>North Carolina</ogr:Name>
+      <ogr:color>#0029FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -485,6 +518,7 @@
       <ogr:Frost>186</ogr:Frost>
       <ogr:Area>69273</ogr:Area>
       <ogr:Name>North Dakota</ogr:Name>
+      <ogr:color>#000AFF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -499,6 +533,7 @@
       <ogr:Frost>124</ogr:Frost>
       <ogr:Area>40975</ogr:Area>
       <ogr:Name>Ohio</ogr:Name>
+      <ogr:color>#1400FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -513,6 +548,7 @@
       <ogr:Frost>82</ogr:Frost>
       <ogr:Area>68782</ogr:Area>
       <ogr:Name>Oklahoma</ogr:Name>
+      <ogr:color>#3300FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -527,6 +563,7 @@
       <ogr:Frost>44</ogr:Frost>
       <ogr:Area>96184</ogr:Area>
       <ogr:Name>Oregon</ogr:Name>
+      <ogr:color>#5200FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -541,6 +578,7 @@
       <ogr:Frost>126</ogr:Frost>
       <ogr:Area>44966</ogr:Area>
       <ogr:Name>Pennsylvania</ogr:Name>
+      <ogr:color>#7000FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -555,6 +593,7 @@
       <ogr:Frost>127</ogr:Frost>
       <ogr:Area>1049</ogr:Area>
       <ogr:Name>Rhode Island</ogr:Name>
+      <ogr:color>#8F00FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -569,6 +608,7 @@
       <ogr:Frost>65</ogr:Frost>
       <ogr:Area>30225</ogr:Area>
       <ogr:Name>South Carolina</ogr:Name>
+      <ogr:color>#AD00FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -583,6 +623,7 @@
       <ogr:Frost>172</ogr:Frost>
       <ogr:Area>75955</ogr:Area>
       <ogr:Name>South Dakota</ogr:Name>
+      <ogr:color>#CC00FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -597,6 +638,7 @@
       <ogr:Frost>70</ogr:Frost>
       <ogr:Area>41328</ogr:Area>
       <ogr:Name>Tennessee</ogr:Name>
+      <ogr:color>#EB00FF</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -611,6 +653,7 @@
       <ogr:Frost>35</ogr:Frost>
       <ogr:Area>262134</ogr:Area>
       <ogr:Name>Texas</ogr:Name>
+      <ogr:color>#FF00F5</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -625,6 +668,7 @@
       <ogr:Frost>137</ogr:Frost>
       <ogr:Area>82096</ogr:Area>
       <ogr:Name>Utah</ogr:Name>
+      <ogr:color>#FF00D6</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -639,6 +683,7 @@
       <ogr:Frost>168</ogr:Frost>
       <ogr:Area>9267</ogr:Area>
       <ogr:Name>Vermont</ogr:Name>
+      <ogr:color>#FF00B8</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -653,6 +698,7 @@
       <ogr:Frost>85</ogr:Frost>
       <ogr:Area>39780</ogr:Area>
       <ogr:Name>Virginia</ogr:Name>
+      <ogr:color>#FF0099</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -667,6 +713,7 @@
       <ogr:Frost>32</ogr:Frost>
       <ogr:Area>66570</ogr:Area>
       <ogr:Name>Washington</ogr:Name>
+      <ogr:color>#FF007A</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -681,6 +728,7 @@
       <ogr:Frost>100</ogr:Frost>
       <ogr:Area>24070</ogr:Area>
       <ogr:Name>West Virginia</ogr:Name>
+      <ogr:color>#FF005C</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -695,6 +743,7 @@
       <ogr:Frost>149</ogr:Frost>
       <ogr:Area>54464</ogr:Area>
       <ogr:Name>Wisconsin</ogr:Name>
+      <ogr:color>#FF003D</ogr:color>
     </ogr:States>
   </gml:featureMember>
   <gml:featureMember>
@@ -709,6 +758,7 @@
       <ogr:Frost>173</ogr:Frost>
       <ogr:Area>97203</ogr:Area>
       <ogr:Name>Wyoming</ogr:Name>
+      <ogr:color>#FF001F</ogr:color>
     </ogr:States>
   </gml:featureMember>
 </ogr:FeatureCollection>
