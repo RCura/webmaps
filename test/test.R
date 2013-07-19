@@ -17,4 +17,5 @@ osmMap(layer(layerData = state ,name = "States",lstyle(
         strokeColor = "black",
         fillOpacity = 0.4)),
     title = "State Data" ,
-    outputDir = "./test/")
+    outputDir = "./test/",
+    toShiny=FALSE)

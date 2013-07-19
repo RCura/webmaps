@@ -3,7 +3,10 @@
   UseMethod(".writeOut")
 }
 
-
 .templatePart <- function(x){
   UseMethod(".templatePart")
+}
+
+.toShiny <- function(Layer){
+    UseMethod('.toShiny')
 }

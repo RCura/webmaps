@@ -1,0 +1,78 @@
+    <script type="text/javascript">
+
+   var map, selectControl, selectedFeature;
+
+
+
+        function onPopupClose(evt) {
+            selectControl.unselect(selectedFeature);
+        }
+        function onFeatureSelect(feature) {
+            selectedFeature = feature;
+            var str = "<table style=\'font-size: 1.5em\'><tr><th colspan=2>"+feature.layer.name+"</th></tr>";
+            for(attr in feature.attributes){
+             str = str + "<tr><td>"+attr+"</td><td>"+feature.attributes[attr]+"</td></tr>";
+            };
+            str = str + "</table>"
+            popup = new OpenLayers.Popup.FramedCloud("chicken", 
+                                     feature.geometry.getBounds().getCenterLonLat(),
+                                     null,
+                                     "<div style=\'font-size:.5em\'>"+str+"</div>",
+                                     null, true, onPopupClose);
+            feature.popup = popup;
+            map.addPopup(popup);
+        }
+        function onFeatureUnselect(feature) {
+            map.removePopup(feature.popup);
+            feature.popup.destroy();
+            feature.popup = null;
+        }    
+
+   function init(){
+      var options = {
+       projection: new OpenLayers.Projection("EPSG:4326"),
+       controls: [new OpenLayers.Control.Navigation(),
+                  new OpenLayers.Control.PanZoomBar(),
+                  new OpenLayers.Control.LayerSwitcher(),
+                  new OpenLayers.Control.Permalink(),
+                  new OpenLayers.Control.ScaleLine(),
+                  new OpenLayers.Control.MousePosition() ]
+      };
+
+
+      map = new OpenLayers.Map("map", options);
+      
+      var mapnik = new OpenLayers.Layer.OSM.Mapnik("OpenStreetMap"); 
+      map.addLayer(mapnik);
+ <% for(Layer in Layers){ %>
+  <% brew(.templatePart(Layer)) %>
+ <% } %>
+
+
+     selectControl = new OpenLayers.Control.SelectFeature(
+                [<%= selectList %>],
+                {onSelect: onFeatureSelect, onUnselect: onFeatureUnselect}
+            );
+            
+            map.addControl(selectControl);
+            selectControl.activate();
+
+map.zoomToExtent(
+      new OpenLayers.Bounds(
+      <%= bounds%>
+      ).transform(map.projection, new OpenLayers.Projection("EPSG:900913"))
+      );
+
+};
+
+        function showStatus(text) {
+            document.getElementById("status").innerHTML = text;            
+        }
+
+        </script>
+   
+
+   
+    <body onload="init()">
+        <div id="map" style="height:600px;width:600px" ></div>
+        <div id="status"></div>
