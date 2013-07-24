@@ -1,10 +1,15 @@
-      var <%= Layer$name%> = new OpenLayers.Layer.Vector("<%= Layer$name%>",{
-          projection: "EPSG:4326",
-          strategies: [new OpenLayers.Strategy.Fixed()]<% if(length(Layer$style)>0){%>,
-		      styleMap: <%= OLStyle(Layer$style)%>  <% } %>
-       });
+      var <%= Layer$name%> = new OpenLayers.Layer.Vector("<%= Layer$name%>");
 
-       map.addLayer(<%= Layer$name%>);
+      var <%= paste(Layer$name, "Options", sep="") %> = {
+         projection: "EPSG: 4326",
+         strategies: [new OpenLayers.Strategy.Fixed()]<% if(length(Layer$style)>0){%>,
+         styleMap: <%= OLStyle(Layer$style)%>  <% } %>
+      };
 
-      var  <%= paste(Layer$name, 'features', sep="") %> = <%= .geoJSONString(Layer)%> ;
+      <%= Layer$name%>.addOptions(<%= paste(Layer$name, "Options", sep="") %>);
+
+      map.addLayer(<%= Layer$name%>);
+
+      var  <%= paste(Layer$name, 'features', sep="") %> = <%= geoJSONString(Layer)%> ;
+
       <%= Layer$name%>.addFeatures(new OpenLayers.Format.GeoJSON().read(<%= paste(Layer$name, 'features', sep="")%>));

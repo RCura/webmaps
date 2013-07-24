@@ -26,3 +26,15 @@ webmapsScript(layer(layerData = state ,name = "States",lstyle(
     strokeColor = "black",
     fillOpacity = 0.4)),
 title = "State Data")
+
+webmap(layer(layerData = state,
+             name = "States",
+             lstyle(
+                 pointRadius = '${Murder}',
+                 fillColor = "${color}",
+                 strokeColor = "black",
+                 fillOpacity = 0.4)),
+       title="Test",
+       htmlFile="index.html",
+       browse=TRUE,
+       toShiny=TRUE)

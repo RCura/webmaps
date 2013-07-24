@@ -1,32 +1,35 @@
     <script type="text/javascript">
 
-   var map, selectControl, selectedFeature;
+    var map, selectControl, selectedFeature;
 
-
-
-        function onPopupClose(evt) {
+    function onPopupClose(evt) {
             selectControl.unselect(selectedFeature);
-        }
-        function onFeatureSelect(feature) {
+          };
+
+    function onFeatureSelect(feature) {
             selectedFeature = feature;
+
             var str = "<table style=\'font-size: 1.5em\'><tr><th colspan=2>"+feature.layer.name+"</th></tr>";
-            for(attr in feature.attributes){
-             str = str + "<tr><td>"+attr+"</td><td>"+feature.attributes[attr]+"</td></tr>";
+            for (attr in feature.attributes){
+              str = str + "<tr><td>"+attr+"</td><td>"+feature.attributes[attr]+"</td></tr>";
             };
-            str = str + "</table>"
+            str = str + "</table>" ;
+
             popup = new OpenLayers.Popup.FramedCloud("chicken", 
                                      feature.geometry.getBounds().getCenterLonLat(),
                                      null,
                                      "<div style=\'font-size:.5em\'>"+str+"</div>",
                                      null, true, onPopupClose);
+
             feature.popup = popup;
             map.addPopup(popup);
-        }
-        function onFeatureUnselect(feature) {
+        };
+
+    function onFeatureUnselect(feature) {
             map.removePopup(feature.popup);
             feature.popup.destroy();
             feature.popup = null;
-        }    
+        }; 
 
    function init(){
       var options = {
@@ -42,11 +45,11 @@
 
       map = new OpenLayers.Map("map", options);
       
-      var mapnik = new OpenLayers.Layer.OSM.Mapnik("OpenStreetMap"); 
-      map.addLayer(mapnik);
- <% for(Layer in Layers){ %>
-  <% brew(.geoJSONtemplatePart(Layer)) %>
- <% } %>
+      var baseLayer = new OpenLayers.Layer.WMS( "OpenLayers WMS", "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} ); 
+      map.addLayer(baseLayer);
+     <% for(Layer in Layers){ %>
+      <% brew(.templatePart(Layer)) %>
+     <% } %>
 
 
      selectControl = new OpenLayers.Control.SelectFeature(
@@ -57,11 +60,7 @@
             map.addControl(selectControl);
             selectControl.activate();
 
-map.zoomToExtent(
-      new OpenLayers.Bounds(
-      <%= bounds%>
-      ).transform(map.projection, new OpenLayers.Projection("EPSG:900913"))
-      );
+map.zoomToExtent( new OpenLayers.Bounds(<%= bounds%>));
 
 };
 
