@@ -22,13 +22,17 @@ state$Name <- rownames(state)
 state$color <- strtrim(rainbow(n=nrow(state)), 7)
 coordinates(state) <- cbind(state.center$x, state.center$y)
 
-osmMap ( layer ( state , "States" , style (
-        pointRadius = '${Murder}',
-        fillColor = "${color}" ,
-        strokeColor = "black",
-        fillOpacity = 0.4)),
-    title = "State Data" ,
-    outputDir = "./test/" )
+webmap(layer(layerData = state,
+             name = "States",
+             lstyle(
+                 pointRadius = '${Murder}',
+                 fillColor = "${color}",
+                 strokeColor = "black",
+                 fillOpacity = 0.4)),
+       title="Test",
+       htmlFile="index.html",
+       browse=TRUE,
+       toShiny=FALSE)
 ```
 
 **NB : This require a webserver due to cross-access restrictions**
