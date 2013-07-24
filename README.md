@@ -34,5 +34,3 @@ webmap(layer(layerData = state,
        browse=TRUE,
        toShiny=FALSE)
 ```
-
-**NB : This require a webserver due to cross-access restrictions**
