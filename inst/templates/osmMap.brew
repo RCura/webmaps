@@ -49,8 +49,8 @@
 
       map = new OpenLayers.Map("map", options);
       
-      var mapnik = new OpenLayers.Layer.OSM.Mapnik("OpenStreetMap"); 
-      map.addLayer(mapnik);
+      var baseLayer = new OpenLayers.Layer.WMS( "OpenLayers WMS", "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} ); 
+      map.addLayer(baseLayer);
  <% for(Layer in Layers){ %>
   <% brew(.templatePart(Layer)) %>
  <% } %>
@@ -64,11 +64,7 @@
             map.addControl(selectControl);
             selectControl.activate();
 
-map.zoomToExtent(
-      new OpenLayers.Bounds(
-      <%= bounds%>
-      ).transform(map.projection, new OpenLayers.Projection("EPSG:900913"))
-      );
+map.zoomToExtent( new OpenLayers.Bounds(<%= bounds%>));
 
 };
 

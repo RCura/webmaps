@@ -38,3 +38,14 @@ print.layer <- function(x,...){
 .templatePart.layer <- function(x){
   system.file("templates/osmLayer.brew",package="webmaps")
 }
+
+.geoJSONtemplatePart.layer <- function(x){
+    system.file("templates/osmGeoJSONLayer.brew",package="webmaps")
+}
+
+.geoJSONString.layer <- function(Layer){
+    name = Layer$name
+    tmpOutputFile <- tempfile()
+    writeOGR(obj=Layer$data,dsn=tmpOutputFile, layer=name, "GeoJSON")
+    readChar(con=tmpOutputFile, nchars=file.info(tmpOutputFile)$size)
+}

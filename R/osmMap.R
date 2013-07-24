@@ -1,6 +1,6 @@
 
 osmMap <-
-function(..., title="map", outputDir=tempdir(), htmlFile="index.html", browse=FALSE, toShiny=FALSE){
+function(..., title="map", outputDir=tempdir(), htmlFile="index.html", browse=FALSE){
 
   require(brew)
   require(sp)
@@ -19,8 +19,6 @@ updateBbox=function(box,layer){
   
   mapTemplate <- system.file("templates/osmMap.brew",package="webmaps")
   layerTemplate <- system.file("templates/osmLayer.brew",package="webmaps")
-  shinyHeaderTemplate <- system.file("templates/osmShinyHeader.brew", package="webmaps")
-  shinyTemplate <- system.file("templates/osmShinyContent.brew", package="webmaps")
 
   box = list(xmin = 180,xmax=-180,ymin=90,ymax=-90)
 
@@ -37,15 +35,10 @@ updateBbox=function(box,layer){
   
   outPath = file.path(outputDir,htmlFile)
   bounds = paste(box$xmin,box$ymin,box$xmax,box$ymax,sep=",")
-  if (!toShiny) {
-      brew(file=mapTemplate,output=outPath)
       if(browse){
           browseURL(outPath)
       }
       return(outPath) 
-  } else {
-      return(brew(file=mapTemplate))
-  }
 }
 
  webmapsTags <- function(){
@@ -54,11 +47,13 @@ updateBbox=function(box,layer){
 }
 
 
-webmapsScript <- function(..., title="webmaps", outputDir=tempdir()){
+webmapsScript <- function(..., title="webmaps"){
     
     require(brew)
     require(sp)
     require(rgdal)
+    
+    outputFile <- tempfile()
     
     updateBbox=function(box,layer){
         bb = bbox(layer)
@@ -78,15 +73,12 @@ webmapsScript <- function(..., title="webmaps", outputDir=tempdir()){
     selectable = c()
     for(Layer in Layers){
         box = updateBbox(box,Layer$data)
-        .writeOut(Layer,outputDir)
         if(Layer$select){
             selectable=c(selectable,Layer$name)
         }
     }
     
     selectList = paste(selectable,collapse=",")
-    
-    outPath = file.path(outputDir,htmlFile)
     bounds = paste(box$xmin,box$ymin,box$xmax,box$ymax,sep=",")
 
     return(brew(file=shinyTemplate))

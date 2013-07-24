@@ -1,7 +1,7 @@
       var <%= Layer$name%> = new OpenLayers.Layer.Vector("<%= Layer$name%>",{
       projection: "EPSG:4326",
       protocol: new OpenLayers.Protocol.HTTP({
-                    	url: "<%= paste(Layer$name,".gml",sep="")%>",
+                    	url: "<%= paste('/data/', Layer$name,".gml",sep="")%>",
                     	format: new OpenLayers.Format.GML()
                 }),
        strategies: [new OpenLayers.Strategy.Fixed()]<% if(length(Layer$style)>0){%>,

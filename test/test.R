@@ -17,5 +17,12 @@ osmMap(layer(layerData = state ,name = "States",lstyle(
         strokeColor = "black",
         fillOpacity = 0.4)),
     title = "State Data" ,
-    outputDir = "./test/",
-    toShiny=FALSE)
+    outputDir = "./test/", browse=TRUE)
+
+
+webmapsScript(layer(layerData = state ,name = "States",lstyle(
+    pointRadius = '${Murder}',
+    fillColor = "${color}" ,
+    strokeColor = "black",
+    fillOpacity = 0.4)),
+title = "State Data")
