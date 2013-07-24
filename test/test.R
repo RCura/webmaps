@@ -21,3 +21,13 @@ webmap(layer(layerData = state,
        htmlFile="index.html",
        browse=TRUE,
        toShiny=FALSE)
+
+library(splancs)
+pts = cbind(rnorm(100,0.5,.5),rnorm(100,53.5,.5))
+pts = rbind(pts,cbind(rnorm(100,-1,.5),rnorm(100,52,.5)))
+k = kernel2d(pts,sbox(pts),0.4,100,100)
+kl = ilayer(k,name="density",colorRamp(c("blue","red")))
+pts = data.frame(pts)
+coordinates(pts) <- cbind(pts[,1],pts[,2])
+ptsl = layer(pts,"Points",lstyle(fillColor="white",strokeColor="black"))
+webmap(kl,ptsl)
