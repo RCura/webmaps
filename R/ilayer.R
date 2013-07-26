@@ -36,18 +36,34 @@ print.ilayer <- function(x,...){
   pngFile = paste(name,".png",sep="")
   pnmPath = file.path(outputDir,pnmFile)
   pngPath = file.path(outputDir,pngFile)
-  
+  cat(paste("//", pngPath, sep=""))
   rgb = Layer$pfunc(t(Layer$xyz$z)[ncol(Layer$xyz$z):1,])
-  rgbpixmap = pixmapRGB(c(rgb[,1],rgb[,2],rgb[,3]),ncol(Layer$xyz$z),nrow(Layer$xyz$z))
+  rgbpixmap = myPixmapRGB(c(rgb[,1],rgb[,2],rgb[,3]),ncol(Layer$xyz$z),nrow(Layer$xyz$z))
   write.pnm(rgbpixmap,file=pnmPath)
   xp=GDAL.open(pnmPath)
   xx=copyDataset(xp,driver="PNG")
   saveDataset(xx,pngPath)
   GDAL.close(xx)
   GDAL.close(xp)
-  file.remove(pnmPath)
+  #file.remove(pnmPath)
 }
 
 .templatePart.ilayer <- function(x){
   system.file("templates/osmILayer.brew",package="webmaps")
+}
+
+myPixmapRGB <- function (data, ...) 
+{
+    z = new("pixmapRGB", pixmap(data, ...))
+    datamax <- max(data)
+    print(datamax)
+    datamin <- min(data)
+    print(datamin)
+    data <- as.numeric(data)
+    if (datamax > 1 || datamin < 0) {data <- (data - datamin)/(datamax - datamin)}
+    data = array(data, dim = c(z@size[1], z@size[2], 3))
+    z@red = matrix(data[, , 1], nrow = z@size[1], ncol = z@size[2])
+    z@green = matrix(data[, , 2], nrow = z@size[1], ncol = z@size[2])
+    z@blue = matrix(data[, , 3], nrow = z@size[1], ncol = z@size[2])
+    z
 }

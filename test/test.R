@@ -17,6 +17,13 @@ webmap(layer(layerData = state,
                  fillColor = "${color}",
                  strokeColor = "black",
                  fillOpacity = 0.4)),
+       layer(layerData = state,
+             name = "States2",
+             lstyle(
+                 pointRadius = 1,
+                 fillColor = 'black',
+                 strokeColor = "black",
+                 fillOpacity = 1)),
        title="Test",
        htmlFile="index.html",
        browse=TRUE,
@@ -29,5 +36,5 @@ k = kernel2d(pts,sbox(pts),0.4,100,100)
 kl = ilayer(k,name="density",colorRamp(c("blue","red")))
 pts = data.frame(pts)
 coordinates(pts) <- cbind(pts[,1],pts[,2])
-ptsl = layer(pts,"Points",lstyle(fillColor="white",strokeColor="black"))
-webmap(kl,ptsl)
+ptsl = layer(pts,"Points",lstyle(pointRadius=3,fillColor="white",strokeColor="black"))
+webmap(kl, ptsl,browse=TRUE)
