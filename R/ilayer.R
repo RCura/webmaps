@@ -1,11 +1,11 @@
-ilayer <- function(xyz,name,pfunc=colorRamp(c("white","black")),opacity=0.6,...){
+ilayer <- function(xyz,name,pfunc=colorRamp(c("white","black")),opacity=0.6, outputDir=tempdir(),...){
 
   if(!.checkName(name)){
     stop(paste("Invalid name: ",name,sep=""))
   }
 
   layer = list()
-
+  outputDir = list(...)
   layer$xyz = xyz
   layer$name = name
 
@@ -20,7 +20,6 @@ ilayer <- function(xyz,name,pfunc=colorRamp(c("white","black")),opacity=0.6,...)
 
   layer$select = FALSE
   class(layer) <- c("ilayer")
-  .writeOut(layer, outputDir)
   return(layer)
   
 }
@@ -50,7 +49,6 @@ print.ilayer <- function(x,...){
 .templatePart.ilayer <- function(x){
   system.file("templates/osmILayer.brew",package="webmaps")
 }
-
 
 # This function is a corrected version of pixmapRGB() from package pixmap.
 # Will be removed when the pixmapRGB() function is fixed on CRAN

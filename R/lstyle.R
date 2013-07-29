@@ -1,4 +1,4 @@
-lstyle <- function(...){
+lstyle <- function(pointRadius=10, ...){
 
   properties = c(
     "fillColor",
@@ -30,6 +30,11 @@ lstyle <- function(...){
   if(any(is.na(m))){
     stop(paste("Unrecognised parameters: ",paste(names(args)[is.na(m)],sep="",collapse=",")))
   }
+  
+  if(!('pointRadius' %in% args)){
+      stop("pointRadius is a required argument")
+  }
+  
   class(args)="lstyle"
   return(args)
     
