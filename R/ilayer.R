@@ -51,6 +51,9 @@ print.ilayer <- function(x,...){
   system.file("templates/osmILayer.brew",package="webmaps")
 }
 
+
+# This function is a corrected version of pixmapRGB() from package pixmap.
+# Will be removed when the pixmapRGB() function is fixed on CRAN
 myPixmapRGB <- function (data, ...) 
 {
     z = new("pixmapRGB", pixmap(data, ...))
