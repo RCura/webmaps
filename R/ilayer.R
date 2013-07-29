@@ -19,8 +19,8 @@ ilayer <- function(xyz,name,pfunc=colorRamp(c("white","black")),opacity=0.6,...)
   layer$extra = list(...)
 
   layer$select = FALSE
-  
   class(layer) <- c("ilayer")
+  .writeOut(layer, tempdir())
   return(layer)
   
 }
@@ -36,7 +36,6 @@ print.ilayer <- function(x,...){
   pngFile = paste(name,".png",sep="")
   pnmPath = file.path(outputDir,pnmFile)
   pngPath = file.path(outputDir,pngFile)
-  cat(paste("//", pngPath, sep=""))
   rgb = Layer$pfunc(t(Layer$xyz$z)[ncol(Layer$xyz$z):1,])
   rgbpixmap = myPixmapRGB(c(rgb[,1],rgb[,2],rgb[,3]),ncol(Layer$xyz$z),nrow(Layer$xyz$z))
   write.pnm(rgbpixmap,file=pnmPath)
@@ -45,7 +44,7 @@ print.ilayer <- function(x,...){
   saveDataset(xx,pngPath)
   GDAL.close(xx)
   GDAL.close(xp)
-  #file.remove(pnmPath)
+  file.remove(pnmPath)
 }
 
 .templatePart.ilayer <- function(x){
@@ -55,10 +54,8 @@ print.ilayer <- function(x,...){
 myPixmapRGB <- function (data, ...) 
 {
     z = new("pixmapRGB", pixmap(data, ...))
-    datamax <- max(data)
-    print(datamax)
-    datamin <- min(data)
-    print(datamin)
+    datamax <- max(data, na.rm=TRUE)
+    datamin <- min(data, na.rm=TRUE)
     data <- as.numeric(data)
     if (datamax > 1 || datamin < 0) {data <- (data - datamin)/(datamax - datamin)}
     data = array(data, dim = c(z@size[1], z@size[2], 3))
