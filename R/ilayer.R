@@ -20,7 +20,7 @@ ilayer <- function(xyz,name,pfunc=colorRamp(c("white","black")),opacity=0.6,...)
 
   layer$select = FALSE
   class(layer) <- c("ilayer")
-  .writeOut(layer, tempdir())
+  .writeOut(layer, outputDir)
   return(layer)
   
 }

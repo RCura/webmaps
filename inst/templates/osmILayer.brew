@@ -14,4 +14,4 @@
 	} );
     
     map.addLayer(<%= Layer$name%>);
-    <% .writeOut(Layer, tempdir())%>;
+    <% .writeOut(Layer, outputDir)%>;

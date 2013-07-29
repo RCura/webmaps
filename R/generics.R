@@ -10,11 +10,3 @@
 .templatePart <- function(x){
   UseMethod(".templatePart")
 }
-
-.geoJSONtemplatePart <- function(x){
-    UseMethod(".geoJSONtemplatePart")
-}
-
-.toShiny <- function(Layer){
-    UseMethod('.toShiny')
-}
