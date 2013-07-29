@@ -45,12 +45,13 @@ webmap <- function(..., title="map", outputDir=tempdir(), htmlFile="index.html",
     
     
     if (!toShiny) {
-        brew(file=mapTemplate, output=outPath, )
+        brew(file=mapTemplate, output=outPath)
         if (browse) {
             browseURL(outPath)  
         }
         return(outPath)
     } else {
-        return(brew(file=mapTemplate))
+        brew(mapTemplate, output=textConnection("outputObj", open="w"))
+        return(outputObj)
     }
 }
