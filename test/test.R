@@ -34,15 +34,3 @@ testPoints <- data.frame(testPoints)
 coordinates(testPoints) <- cbind(testPoints[,1], testPoints[,2])
 pointsLayer <- layer(testPoints, "Points", lstyle(pointRadius=3, fillColor="white", strokeColor="black"))
 webmap(kLayer, pointsLayer, browse=TRUE, toShiny=FALSE, outputDir='/home/robin/test/')
-
-
-k2d2 <- kernel2d(pts=state@coords, poly=sbox(state@coords), h0=1, nx=1000, ny=1000, quiet=TRUE)
-kLayer2 <-  ilayer(k2d2, name="density", colorRamp(c("blue", "red")))
-stateLayer <- layer(layerData = state,
-                    name = "States",
-                    lstyle(
-                        pointRadius = '${Murder}',
-                        fillColor = "${color}",
-                        strokeColor = "black",
-                        fillOpacity = 0.4))
-webmap(kLayer2, stateLayer, browse=TRUE, toShiny=FALSE, outputDir='/home/robin/test/')
