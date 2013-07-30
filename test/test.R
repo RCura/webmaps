@@ -27,6 +27,18 @@ webmap(layer(layerData = state,
        toShiny=FALSE)
 
 
+webmap(layer(layerData = state,
+             name = "States",
+             lstyle(
+                 pointRadius = '${Murder}',
+                 fillColor = "${color}",
+                 strokeColor = "black",
+                 fillOpacity = 0.4)),
+       title="Test",
+       htmlFile="index.html",
+       browse=TRUE,
+       toShiny=FALSE)
+
 # iLayer test
 library(splancs)
 testPoints <- cbind(rnorm(100,0.5,.5), rnorm(100,53.5,.5))
