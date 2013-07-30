@@ -40,12 +40,7 @@ webmap(kLayer, pointsLayer, browse=TRUE, toShiny=FALSE, outputDir='/home/robin/t
 
 
 # Shiny test
-abc <- webmap(layer(layerData = state,
-             name = "States",
-             lstyle(
-                 pointRadius = '${Murder}',
-                 fillColor = "${color}",
-                 strokeColor = "black",
-                 fillOpacity = 0.4)),
-       title="Test",
-       toShiny=TRUE)
+require(shiny)
+runApp(appDir="test/shinyapp/", port=8999, launch.browser=TRUE)
+
+
