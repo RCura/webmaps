@@ -51,7 +51,9 @@ webmap <- function(..., title="map", outputDir=tempdir(), htmlFile="index.html",
         }
         return(outPath)
     } else {
-        brew(mapTemplate, output=textConnection("outputObj", open="w"))
+        myCon <- textConnection("outputObj", open="w")
+        brew(mapTemplate, output=myCon)
+        close(myCon)
         return(outputObj)
     }
 }
