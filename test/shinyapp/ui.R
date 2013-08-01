@@ -10,7 +10,6 @@ shinyUI(pageWithSidebar(
     # Sidebar with a slider input for number of observations
     sidebarPanel(
         tags$head(webmapTags()),
-        tags$body(onload="init();"),
         sliderInput("obs", 
                     "Number of observations:", 
                     min = 1,
