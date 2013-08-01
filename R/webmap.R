@@ -1,7 +1,10 @@
 
  webmapTags <- function(){
    list(tags$script(src="http://www.openlayers.org/api/OpenLayers.js", type="text/javascript"),
-       tags$script(src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js", type="text/javascript")) 
+       tags$script(src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js", type="text/javascript"),
+        tags$script(HTML('Shiny.addCustomMessageHandler("jsCode", function(message){
+                eval(message.value)                                         
+        })'))) 
 }
 
 webmap <- function(..., title="map", outputDir=tempdir(), htmlFile="index.html", browse=FALSE, toShiny= FALSE){

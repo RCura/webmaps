@@ -1,6 +1,6 @@
 library(shiny)
 
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
     
     if (!require(webmaps)) {
         require(devtools)
@@ -9,6 +9,7 @@ shinyServer(function(input, output) {
     
     
     output$webmap <- renderUI({
+        
         state <- data.frame(state.x77)
         state$Name <- rownames(state)
         state$color <- strtrim(rainbow(n=nrow(state)), 7)
@@ -21,5 +22,11 @@ shinyServer(function(input, output) {
                          strokeColor = "black",
                          fillOpacity = 0.4)),
                toShiny=TRUE))
+    })
+    
+    observe({
+        input$obs
+        myMsg <- "$('#map').empty(); init()"
+        session$sendCustomMessage(type='jsCode', list(value = myMsg))
     })
 })
