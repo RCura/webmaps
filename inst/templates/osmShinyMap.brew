@@ -1,3 +1,4 @@
+
     <script type="text/javascript">
 
     var map, selectControl, selectedFeature;
@@ -66,7 +67,7 @@ map.zoomToExtent( new OpenLayers.Bounds(<%= bounds%>));
 
         function showStatus(text) {
             document.getElementById("status").innerHTML = text;            
-        }
-
+        };
+        $('#map').empty();
+        init();
         </script>
-

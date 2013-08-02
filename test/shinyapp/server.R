@@ -6,12 +6,9 @@ shinyServer(function(input, output, session) {
         require(devtools)
         install_github(repo = "webmaps", username = "RCura") ; require(webmaps)
     }
-
     observe({
         input$obs
-        session$sendCustomMessage(type='jsCode', list(value = "$('#map').empty();"))
         output$webmap <- renderUI({
-            test <- runif(n=1)
             state <- data.frame(state.x77)
             state$Name <- rownames(state)
             state$color <- strtrim(rainbow(n=nrow(state)), 7)
@@ -25,6 +22,5 @@ shinyServer(function(input, output, session) {
                                   fillOpacity = 0.4)),
                         toShiny=TRUE))
         })
-        session$sendCustomMessage(type='jsCode', list(value = "init();"))
     })
 })
