@@ -7,7 +7,7 @@ Easily create HTML pages that show your points, lines, and polygons on world map
 * Author : **Barry Rowlingson**
 * Maintainer : **Robin Cura**
 
-![webmaps screenshot](http://github.com/RCura/webmaps/blob/master/img/webmaps_screenshot.png)
+![webmaps screenshot](https://raw.github.com/RCura/webmaps/master/img/webmaps_screenshot.png)
 
 ## Setup
 This package can be installed using the `devtools` package, running :
