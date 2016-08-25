@@ -1,6 +1,10 @@
 webmaps
 =======
 
+## This package development is discontinued due to better and more maintained packages.
+## For webmapping, check [leaflet](https://rstudio.github.io/leaflet/), [leafletR](https://github.com/chgrl/leafletR) and [mapview](https://github.com/environmentalinformatics-marburg/mapview).
+## If you need to use OpenLayers from R, [OpenStreetMapR](http://greentheo.github.io/OpenStreetMapR/) seems the best deal.
+
 An R package for creating 'slippy web maps' from spatial data.
 Easily create HTML pages that show your points, lines, and polygons on world map data.
 
